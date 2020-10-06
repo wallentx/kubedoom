@@ -37,6 +37,7 @@ FROM ubuntu
 RUN apt-get install -y \
   -o APT::Install-Suggests=0 \
   --no-install-recommends \
+  awscli \
   libsdl-mixer1.2 \
   libsdl-net1.2 \
   x11vnc \

@@ -4,7 +4,8 @@
 The next level of chaos engineering is here! Kill pods inside your Kubernetes
 cluster by shooting them in Doom!
 
-This is a fork of the excellent
+This is a fork of the fantastic
+[storax/kubedoom](https://github.com/storax/kubedoom) fork of the excellent
 [gideonred/dockerdoomd](https://github.com/gideonred/dockerdoomd) using a
 slightly modified Doom, forked from https://github.com/gideonred/dockerdoom,
 which was forked from psdoom.
@@ -13,19 +14,20 @@ which was forked from psdoom.
 
 ## Usage
 
-Run `storaxdev/kubedoom:0.4.0` locally:
+Run `ghcr.io/wallentx/kubedoom:0.4.1a` locally:
 
 ```console
 $ docker run -p5901:5900 \
   --net=host \
   -v ~/.kube:/root/.kube \
+  -v ~/.aws:/root/.aws \
   --rm -it --name kubedoom \
-  storaxdev/kubedoom:0.4.0
+  ghcr.io/wallentx/kubedoom:0.4.1a
 ```
 
-Now start a VNC viewer and connect to `localhost:5901`. The password is `1234`:
+Now start a VNC viewer and connect to `127.0.0.1:5901`. The password is `1234`:
 ```console
-$ vncviewer viewer localhost:5901
+$ vncviewer 127.0.0.1:5901
 ```
 You should now see DOOM! Now if you want to get the job done quickly enter the
 cheat `idspispopd` and walk through the wall on your right. You should be
@@ -43,8 +45,9 @@ to `namespaces`:
 $ docker run -p5901:5900 \
   --net=host \
   -v ~/.kube:/root/.kube \
+  -v ~/.aws:/root/.aws \
   --rm -it --name kubedoom \
-  storaxdev/kubedoom:0.4.0 \
+  ghcr.io/wallentx/kubedoom:0.4.1a \
   -mode namespaces
 ```
 
@@ -87,7 +90,7 @@ clusterrolebinding.rbac.authorization.k8s.io/kubedoom created
 
 To connect run:
 ```console
-$ vncviewer viewer localhost:5900
+$ vncviewer 127.0.0.1:5900
 ```
 
 Kubedoom requires a service account with permissions to list all pods and delete

@@ -165,7 +165,7 @@ func main() {
 	log.Print("Create virtual display")
 	startCmd("/usr/bin/Xvfb :99 -ac -screen 0 640x480x24")
 	time.Sleep(time.Duration(2) * time.Second)
-	startCmd("x11vnc -geometry 640x480 -forever -usepw -display :99")
+	startCmd("x11vnc -ncache_cr -ncache 10 -geometry 640x480 -forever -usepw -display :99")
 	log.Print("You can now connect to it with a VNC viewer at port 5900")
 
 	log.Print("Trying to start DOOM ...")
