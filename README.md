@@ -17,7 +17,7 @@ which was forked from psdoom.
 Run `ghcr.io/wallentx/kubedoom:0.4.1a` locally:
 
 ```console
-$ docker run -p5901:5900 \
+$ docker run -p 5900:5900 \
   --net=host \
   -v ~/.kube:/root/.kube \
   -v ~/.aws:/root/.aws \
@@ -25,9 +25,9 @@ $ docker run -p5901:5900 \
   ghcr.io/wallentx/kubedoom:0.4.1a
 ```
 
-Now start a VNC viewer and connect to `127.0.0.1:5901`. The password is `1234`:
+Now start a VNC viewer and connect to `127.0.0.1:5900`. The password is `1234`:
 ```console
-$ vncviewer 127.0.0.1:5901
+$ vncviewer 127.0.0.1:5900
 ```
 You should now see DOOM! Now if you want to get the job done quickly enter the
 cheat `idspispopd` and walk through the wall on your right. You should be
@@ -42,7 +42,7 @@ them](https://github.com/storax/kubedoom/issues/5). Simply set the `-mode` flag
 to `namespaces`:
 
 ```console
-$ docker run -p5901:5900 \
+$ docker run -p 5900:5900 \
   --net=host \
   -v ~/.kube:/root/.kube \
   -v ~/.aws:/root/.aws \
